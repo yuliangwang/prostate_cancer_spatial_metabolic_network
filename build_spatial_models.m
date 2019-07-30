@@ -22,7 +22,7 @@ confidenceScores=[];
      end
  end
  
-evidence=tdfread('section_1point2_tumor_region_evidence_mean_NAMPT.txt','\t');
+evidence=tdfread('section_1point2_tumor_region_evidence_mean.txt','\t');
 G=evidence.genes;
 U=evidence.state;
 G=cellstr(num2str(G));
