@@ -2,3 +2,4 @@
 This repository includes R and Matlab codes for building spatially resolved metabolic networks for prostate cancer. 
 Required R packages:pheatmap, ggplot2. 
 Required Python module: spatialDE (https://github.com/Teichlab/SpatialDE)
+Required Matlab scripts: mCADRE (https://github.com/jaeddy/mcadre). 
