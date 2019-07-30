@@ -125,3 +125,17 @@ for (i in seq_along(genes2plot)){
   
 }
 
+#############################################
+#Output transcriptomics evidence for mCADRE#
+spink1<-as.numeric(prostate_norm[genes=="SPINK1",])
+spink1<-log2(spink1+0.1)
+tumor_region<-prostate_norm[,spink1>4.65 & x<25 & y>17.5]
+
+load("~/Dropbox/research_projects/recon1_genes.RData")
+tumor_region_met<-tumor_region[genes %in% recon1_genes$hgnc_symbol,]
+met_genes<-genes[genes %in% recon1_genes$hgnc_symbol]
+ind<-match(met_genes,ensg2symbol$hgnc_symbol)
+met_gene_entrez<-ensg2symbol$entrezgene[ind]
+evidence<-data.frame(genes=met_gene_entrez,state=apply(tumor_region_met,1,mean))
+
+write.table(evidence,file=".section_1point2_tumor_region_evidence_mean.txt",col.names = T,row.names=F,quote=F,sep="\t")
